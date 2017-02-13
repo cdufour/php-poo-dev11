@@ -1,0 +1,7 @@
+Au sein de la classe Equipe, ajouter un accesseur et un mutateur
+permettant d'accéder et de modifier une propriété "entraineur".
+
+Tester.
+
+Exemple:
+echo $realMadrid->getEntraineur() // retourne 'Zidane'

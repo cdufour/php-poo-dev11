@@ -1,0 +1,5 @@
+equipe
+  entraineur
+  localisation
+  nb_c1
+  nom_stade

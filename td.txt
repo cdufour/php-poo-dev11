@@ -1,0 +1,17 @@
+*** TP: Générateur de rectangles ***
+
+Créer une petite app web (codée en PHP OO) qui générera un certain nombre de rectangles colorés.
+Chaque rectangle aura
+  une hauteur
+  une largeur
+  une couleur
+
+Proposer au client un formulaire (avec bouton de validation) permettant d'indiquer
+ - le nombre de rectangles à générer
+ - leur couleur
+ - leur dimension
+
+ Option: permettre une coloration aléatoire
+
+ Contrainte : la forme carrée n'est pas autorisée
+ Renvoyer un message spécifique dans ce cas

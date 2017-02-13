@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TP Générateur de rectangles</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body class="container">
+      <h2>TP Générateur de rectangles</h2>
+      <form action="app.php" method="POST">
+        <div class="form-group">
+          <label for="">Nombre de rectangles</label>
+          <input type="text" class="form-control" name="rectangles[nombre]">
+        </div>
+        <div class="form-group">
+          <label for="">Hauteur</label>
+          <input type="text" class="form-control" name="rectangles[hauteur]">
+        </div>
+        <div class="form-group">
+          <label for="">Largeur</label>
+          <input type="text" class="form-control" name="rectangles[largeur]">
+        </div>
+        <div class="form-group">
+          <label for="">Couleur</label>
+          <select name="rectangles[couleur]">
+            <option value="0">Aléatoire</option>
+            <option value="red">Rouge</option>
+            <option value="green">Vert</option>
+            <option value="blue">Bleu</option>
+            <option value="orange">Orange</option>
+          </select>
+        </div>
+        <button class="btn btn-default">Générer</button>
+      </form>
+
+  </body>
+</html>
