@@ -5,9 +5,6 @@ class Rectangle {
   private $largeur;
   private $couleur;
 
-  // La classe est responsable de la gestion du carré
-  public static $estCarre;
-
   public function __construct($params) {
     $this->hauteur = $params['hauteur'];
     $this->largeur = $params['largeur'];
@@ -16,7 +13,9 @@ class Rectangle {
     $this->couleur = ($params['couleur'] == 0)
       ? $this->couleurAleatoire() : $params['couleur'];
 
-    self::$estCarre = $this->hauteur === $this->largeur;
+    if ($this->estCarre()) {
+      throw new Exception('La forme carrée n\'est pas autorisée');
+    }
 
   }
 
@@ -28,6 +27,10 @@ class Rectangle {
   }
   public function getCouleur() {
     return $this->couleur;
+  }
+
+  private function estCarre() {
+    return $this->getLargeur() === $this->getHauteur();
   }
 
   private function couleurAleatoire() {
@@ -49,12 +52,12 @@ class Rectangle {
 $nb_rectangles = $_POST['rectangles']['nombre'];
 
 for ($i=0; $i<$nb_rectangles; $i++) {
-  $rectangle = new Rectangle($_POST['rectangles']);
-  if (Rectangle::$estCarre) {
-    echo 'Le carré n\'est pas autorisé';
-    break;
-  } else {
+  try {
+    $rectangle = new Rectangle($_POST['rectangles']);
     echo $rectangle->genereDiv();
+  } catch (Exception $e) {
+    echo $e->getMessage();
+    break;
   }
 
 }

@@ -1,0 +1,15 @@
+*** TP: Rencontres sportives ***
+
+Créer une app (codée en PHP OO) qui permettra:
+ - d'enregistrer en base de données le résultat de rencontres entre clubs de football.
+ - d'afficher la liste des rencontres enregistrées
+
+ Une rencontre se définira par :
+  - une équipe recevant
+  - une équipe reçue (visiteur)
+  - une date et heure
+  - un lieu (exemple: Juventus Stadium, Turin)
+  - un type de compétition (exemple: Europa League)
+  - un résultat
+
+Les équipes et les types de compétition seront à charger depuis la base de données.
