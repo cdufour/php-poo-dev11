@@ -5,3 +5,6 @@ Tester.
 
 Exemple:
 echo $realMadrid->getEntraineur() // retourne 'Zidane'
+
+
+https://github.com/cdufour/php-poo-dev11

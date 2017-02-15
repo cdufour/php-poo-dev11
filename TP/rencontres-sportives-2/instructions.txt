@@ -1,0 +1,12 @@
+*** TP: Rencontres sportives 2 ***
+
+Enrichir l'application "Rencontres sportives" en lui apportant les fonctionnalités suivantes:
+
+- enregistrement des buteurs d'une rencontre (Nom et prénom suffiront, option: minute du but)
+- affichage des buteurs dans le tableau des rencontres
+- affichage d'une "fiche équipe" au clic sur le nom d'une équipe dans le tableau
+- suppression d'une rencontre par clic sur un bouton "Supprimer" à ajouter dans le tableau
+
+La fiche équipe affichera les infos de l'équipe ainsi que la liste de ses joueurs
+
+Contrainte: coder en PHP OO
