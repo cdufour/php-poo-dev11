@@ -21,7 +21,7 @@ $competitions = $dbm->findAll();
   <head>
     <meta charset="utf-8">
     <title>TP rencontres sportives</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
   </head>
   <body class="container">
     <h2>TP rencontres sportives</h2>
@@ -62,7 +62,10 @@ $competitions = $dbm->findAll();
       <div class="row">
         <div class="form-group col-md-6">
           <label for="">Buteurs</label>
+          <!-- usage sporadique d'un inline style -->
+          <div id="joueursEquipe1"></div>
           <button
+            style="display:none"
             id="ajouteButeur"
             type="button"
             class="btn btn-default btn-xs">Ajouter un buteur</button>

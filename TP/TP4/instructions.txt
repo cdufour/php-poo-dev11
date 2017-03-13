@@ -1,0 +1,12 @@
+*** TP 4 : Ajax ***
+
+Créer une mini app proposant un menu déroulant avec les options suivantes:
+  - rencontres
+  - equipes
+  - joueurs
+
+  A l'évènement .change de ce menu déroulant, mettre à jour le dom
+  en affichant les données liées au choix fait dans la liste
+
+  exemple: je choisis "équipes", une liste d'équipes apparaît dans la page
+  (sans rechargement)
