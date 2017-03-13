@@ -5,11 +5,12 @@ require 'classes/Joueur.php';
 require 'classes/DBM.php';
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") { // formulaire posté
+  print_r($_POST['rencontre']);
   $rencontre = new Rencontre($_POST['rencontre']);
   $rencontre->enregistrer();
 
   // redirection vers la page d'accueil
-  header('location:index.php');
+  //header('location:index.php');
 } else { // GET pour affichage de la fiche equipe
 
   switch ($_GET['action']) {

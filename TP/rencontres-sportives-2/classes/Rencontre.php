@@ -19,7 +19,7 @@ class Rencontre
 
     // hydratation: on fournit des valeurs aux propriétés
     if (!empty($donnees)) { // on hydrate que si le tableau des données n'est pas vide
-      $this->setId($donnees['id']);
+      if (isset($donnees['id'])) $this->setId($donnees['id']);
       $this->setEquipe1($donnees['equipe1']);
       $this->setScore1($donnees['score1']);
       $this->setEquipe2($donnees['equipe2']);

@@ -41,7 +41,13 @@ $competitions = $dbm->findAll();
         </div>
         <div class="form-group col-md-2">
           <label for="">Score</label>
-          <input type="text" name="rencontre[score1]" class="form-control">
+          <input
+            id="score1"
+            type="text"
+            value="0"
+            name="rencontre[score1]"
+            disabled
+            class="form-control">
         </div>
         <div class="form-group col-md-4">
           <label for="">Equipe reçue</label>
@@ -61,15 +67,16 @@ $competitions = $dbm->findAll();
       </div>
       <div class="row">
         <div class="form-group col-md-6">
-          <label for="">Buteurs</label>
-          <!-- usage sporadique d'un inline style -->
-          <div id="joueursEquipe1"></div>
-          <button
-            style="display:none"
-            id="ajouteButeur"
-            type="button"
-            class="btn btn-default btn-xs">Ajouter un buteur</button>
-            <span id="message"></span>
+          <ul id="listeButeurs1"></ul>
+          <div id="formButeurEquipe1" style="display:none">
+            <span>Buteur </span>
+            <div id="joueursEquipe1"></div>
+            <span>Minute </span><input type="text" />
+            <button
+              id="ajouteButeur"
+              type="button"
+              class="btn btn-default btn-xs">Ajouter un buteur</button>
+          </div>
         </div>
         <div class="form-group col-md-6">
           <label for="">Buteurs</label>
