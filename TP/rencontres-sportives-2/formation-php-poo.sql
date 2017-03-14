@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 16 Février 2017 à 17:17
+-- Généré le :  Mar 14 Mars 2017 à 14:10
 -- Version du serveur :  10.1.21-MariaDB
 -- Version de PHP :  5.6.30
 
@@ -19,6 +19,28 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `formation-php-poo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `but`
+--
+
+CREATE TABLE `but` (
+  `id` int(11) NOT NULL,
+  `rencontre` int(11) NOT NULL,
+  `joueur` int(11) NOT NULL,
+  `minute` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `but`
+--
+
+INSERT INTO `but` (`id`, `rencontre`, `joueur`, `minute`) VALUES
+(1, 23, 1, 12),
+(2, 23, 1, 69),
+(3, 23, 2, 80);
 
 -- --------------------------------------------------------
 
@@ -113,19 +135,19 @@ CREATE TABLE `rencontre` (
 --
 
 INSERT INTO `rencontre` (`id`, `equipe1`, `equipe2`, `score1`, `score2`, `date`, `lieu`, `competition`) VALUES
-(6, 1, 4, 0, 0, '2012-02-02 20:45:00', 'Londres', 4),
 (8, 4, 8, 4, 2, '0000-00-00 00:00:00', 'Milan', 2),
 (9, 2, 1, 6, 1, '0000-00-00 00:00:00', 'Turin', 1),
-(10, 0, 0, 0, 0, '0000-00-00 00:00:00', '', 0),
-(11, 0, 0, 0, 0, '0000-00-00 00:00:00', '', 0),
-(12, 0, 0, 0, 0, '0000-00-00 00:00:00', '', 0),
-(13, 0, 0, 0, 0, '0000-00-00 00:00:00', '', 0),
-(14, 0, 0, 0, 0, '0000-00-00 00:00:00', '', 0),
-(15, 0, 0, 0, 0, '0000-00-00 00:00:00', '', 0);
+(23, 2, 7, 3, 0, '0000-00-00 00:00:00', 'test', 2);
 
 --
 -- Index pour les tables exportées
 --
+
+--
+-- Index pour la table `but`
+--
+ALTER TABLE `but`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `competition`
@@ -156,6 +178,11 @@ ALTER TABLE `rencontre`
 --
 
 --
+-- AUTO_INCREMENT pour la table `but`
+--
+ALTER TABLE `but`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT pour la table `competition`
 --
 ALTER TABLE `competition`
@@ -174,7 +201,7 @@ ALTER TABLE `joueur`
 -- AUTO_INCREMENT pour la table `rencontre`
 --
 ALTER TABLE `rencontre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

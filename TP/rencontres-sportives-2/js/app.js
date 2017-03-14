@@ -5,21 +5,25 @@ $(document).ready(function() {
     score2: 0
   }
 
-  var $message = $('#message');
   var $selectEquipe1 = $('#selectEquipe1');
   var $joueursEquipe1 = $('div#joueursEquipe1');
   var $formButeurEquipe1 = $('div#formButeurEquipe1');
   var $listeButeurs1 = $('ul#listeButeurs1');
-  var $ajouteButeur = $('#ajouteButeur');
+  var $ajouteButeur = $('button#ajouteButeur');
   var $score1 = $('input#score1');
+  var $minuteBut1 = $('input#minuteBut1');
 
   // événements
   $ajouteButeur.click(function() {
     var $selectedOption = $('#selectJoueur option:selected');
     var joueurName = $selectedOption.text();
     var joueurId = $selectedOption.val();
-    var li = '<li>' + joueurName;
+    var li = '<li>';
+    li += '<span>'+ $minuteBut1.val() +'\' </span>';
+    li += '<span>'+ joueurName +'</span>';
     li += '<span class="glyphicon glyphicon-trash"></span>';
+    li += '<input type="hidden" name="buteurs1[]" value="'+ joueurId +'"/>';
+    li += '<input type="hidden" name="minutes1[]" value="'+ $minuteBut1.val() +'"/>';
     li += '</li>';
 
     // ajout du buteur dans le DOM
@@ -61,6 +65,10 @@ $(document).ready(function() {
     $score1.val(app.score1);
   });
 
+  $('form').submit(function() {
+    // code éxécuté côté clien juste avant l'envoi des données au serveur
+    $('input#score1Hidden').val(app.score1);
+  });
 
   // helper functions
   function buildSelectJoueurs(joueurs) {

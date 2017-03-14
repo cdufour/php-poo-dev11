@@ -45,6 +45,10 @@ class Rencontre
     $requete->bindValue(':lieu', $this->getLieu());
     $requete->bindValue(':competition', $this->getCompetition());
     $requete->execute();
+
+    // renvoie l'id (AI) de la dernière ligne ajouté
+    // renvoie 0 en cas de problème
+    return $this->db->lastInsertId();
   }
 
   public function liste()
