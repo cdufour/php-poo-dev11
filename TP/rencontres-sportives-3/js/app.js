@@ -2,7 +2,9 @@ $(document).ready(function() {
 
   var app = {
     score1: 0,
-    score2: 0
+    score2: 0,
+    equipe1_select: null,
+    equipe2_select: null
   }
 
   // equipe 1
@@ -72,11 +74,18 @@ $(document).ready(function() {
     $score1.val(app.score1);
     $listeButeurs1.html('');
 
+    if (app.equipe1_select)
+      $selectEquipe2.children('option[value='+app.equipe1_select+']').show();
+
     if(equipe_id == 0) {
       // option "Choisir une équipe"
       $joueursEquipe1.html(''); // efface le contenu du div
       $formButeurEquipe1.hide();
     } else {
+
+      $selectEquipe2.children('option[value='+equipe_id+']').hide();
+      app.equipe1_select = equipe_id;
+
       $formButeurEquipe1.show();
       // choix d'une équipe => ajax
       var url = 'ajax.php?id=' + equipe_id;
@@ -98,11 +107,17 @@ $(document).ready(function() {
     $score2.val(app.score2);
     $listeButeurs2.html('');
 
+    if (app.equipe2_select)
+      $selectEquipe1.children('option[value='+app.equipe2_select+']').show();
+
     if(equipe_id == 0) {
       // option "Choisir une équipe"
       $joueursEquipe2.html(''); // efface le contenu du div
       $formButeurEquipe2.hide();
     } else {
+      $selectEquipe1.children('option[value='+equipe_id+']').hide();
+      app.equipe2_select = equipe_id;
+
       $formButeurEquipe2.show();
       // choix d'une équipe => ajax
       var url = 'ajax.php?id=' + equipe_id;
@@ -134,6 +149,14 @@ $(document).ready(function() {
     $('input#score2Hidden').val(app.score2);
   });
 
+  $('.resultat')
+    .mouseenter(function() {
+      $(this).parent().find('div.buteurs').show(200);
+    })
+    .mouseleave(function() {
+      $(this).parent().find('div.buteurs').hide(200);
+  });
+
   // helper functions
   function buildSelectJoueurs(joueurs, id) {
     var select = '<select id="selectJoueur'+id+'">';
@@ -143,8 +166,6 @@ $(document).ready(function() {
     select += '</select>';
     return select;
   }
-
-
 
 
 });

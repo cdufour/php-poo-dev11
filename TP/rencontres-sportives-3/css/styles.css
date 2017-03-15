@@ -5,3 +5,18 @@
 .inline {
   display: inline-block;
 }
+
+.buteurs {
+  width: 140px;
+  background-color: #ccc;
+  border: 1px orange solid;
+  position: absolute;
+  opacity: .9;
+  font-size: .9rem;
+  padding:6px;
+  display: none
+}
+
+.resultat {
+  cursor: pointer;
+}

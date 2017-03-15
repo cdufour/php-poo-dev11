@@ -36,6 +36,20 @@ class DBM{
     return $objet;
   }
 
+  public function findAllByColumn($column, $value)
+  {
+    $collection = [];
+
+    $requete = "SELECT * FROM {$this->classname} WHERE {$column} = {$value}";
+    $resultat = $this->db->query($requete);
+
+    while($donnees = $resultat->fetch(PDO::FETCH_ASSOC)) {
+      $collection[] = new $this->classname($donnees);
+    }
+
+    return $collection; // retourne un tableau d'objets
+  }
+
   public function delete($id)
   {
     $requete = "DELETE FROM {$this->classname} WHERE id = :id";

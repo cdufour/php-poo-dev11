@@ -3,6 +3,8 @@
 require 'classes/Rencontre.php';
 require 'classes/Equipe.php';
 require 'classes/Competition.php';
+require 'classes/But.php';
+require 'classes/Joueur.php';
 require 'classes/DBM.php';
 
 $rencontre = new Rencontre();
@@ -20,13 +22,13 @@ $competitions = $dbm->findAll();
 <html>
   <head>
     <meta charset="utf-8">
-    <title>TP rencontres sportives</title>
+    <title>TP rencontres sportives 3</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body class="container">
-    <h2>TP rencontres sportives</h2>
+    <h2>TP rencontres sportives 3</h2>
 
     <form action="app.php" method="post" class="well">
       <div class="row">
@@ -147,12 +149,43 @@ $competitions = $dbm->findAll();
         <tr>
           <td>
             <?php
+
+              $dbm_but = new DBM('But');
+              $buts = $dbm_but->findAllByColumn('rencontre', $rencontre->getId());
+
+              $buteurs1 = '';
+              $buteurs2 = '';
+
+              foreach($buts as $but) {
+                $dbm_joueur = new DBM('Joueur');
+                $dbm_equipe = new DBM('Equipe');
+
+                $joueur = $dbm_joueur->findById($but->getJoueur());
+                $joueur_equipe = $dbm_equipe->findById($joueur->getEquipe());
+
+                if($joueur_equipe->getNom() == $rencontre->getEquipe1())
+                  $buteurs1 .= $but->getMinute() . ' \'' . $joueur->getNom() . '<br />';
+
+                if($joueur_equipe->getNom() == $rencontre->getEquipe2())
+                  $buteurs2 .= $but->getMinute() . ' \'' . $joueur->getNom() . '<br />';
+              }
+
               $equipe = $rencontre->getEquipe1($retourneObjet = true);
               echo '<a href="app.php?action=details&id='.$equipe->getId().'">' . $equipe->getNom() . '</a>';
             ?>
           </td>
           <td><?php echo $rencontre->getEquipe2() ?></td>
-          <td><?php echo $rencontre->resultat($separateur = '-') ?></td>
+          <td class="resultat">
+            <?php
+            $div = '<div class="buteurs">';
+            $div .= '<div style="float:left">' . $buteurs1 . '</div>';
+            $div .= '<div>' . $buteurs2 . '</div>';
+            $div .= '</div>';
+
+            echo $div;
+            echo $rencontre->resultat($separateur = '-')
+            ?>
+        </td>
           <td><?php echo $rencontre->getLieu() ?></td>
           <td><?php echo $rencontre->getDate() ?></td>
           <td><?php echo $rencontre->getCompetition() ?></td>

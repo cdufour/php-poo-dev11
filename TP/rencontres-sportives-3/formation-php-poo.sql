@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 15 Mars 2017 à 12:29
+-- Généré le :  Mer 15 Mars 2017 à 16:09
 -- Version du serveur :  10.1.21-MariaDB
 -- Version de PHP :  5.6.30
 
@@ -41,7 +41,9 @@ INSERT INTO `but` (`id`, `rencontre`, `joueur`, `minute`) VALUES
 (7, 25, 1, 4),
 (8, 25, 2, 40),
 (9, 25, 4, 79),
-(10, 25, 5, 90);
+(10, 25, 5, 90),
+(12, 27, 4, 4),
+(13, 27, 2, 89);
 
 -- --------------------------------------------------------
 
@@ -138,7 +140,8 @@ CREATE TABLE `rencontre` (
 --
 
 INSERT INTO `rencontre` (`id`, `equipe1`, `equipe2`, `score1`, `score2`, `date`, `lieu`, `competition`) VALUES
-(25, 2, 4, 2, 2, '2017-03-08 20:00:00', 'Turin', 2);
+(25, 2, 4, 2, 2, '2017-03-08 20:00:00', 'Turin', 2),
+(27, 4, 2, 1, 1, '2017-03-14 22:00:00', 'Londre', 2);
 
 --
 -- Index pour les tables exportées
@@ -182,7 +185,7 @@ ALTER TABLE `rencontre`
 -- AUTO_INCREMENT pour la table `but`
 --
 ALTER TABLE `but`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `competition`
 --
@@ -202,7 +205,7 @@ ALTER TABLE `joueur`
 -- AUTO_INCREMENT pour la table `rencontre`
 --
 ALTER TABLE `rencontre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
