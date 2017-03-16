@@ -22,15 +22,41 @@ $competitions = $dbm->findAll();
 <html>
   <head>
     <meta charset="utf-8">
-    <title>TP rencontres sportives 3</title>
+    <title>TP rencontres sportives 4</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body class="container">
-    <h2>TP rencontres sportives 3</h2>
+    <h2>TP rencontres sportives 4</h2>
 
-    <form action="app.php" method="post" class="well">
+    <button id="afficheFormEquipe" class="btn btn-default">
+      Ajouter une équipe</button>
+
+    <div id="formAjouteEquipe"
+      style="display:none; margin:10px 0"
+      class="well">
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label>Nom</label>
+          <input id="equipeNom" type="text">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Logo</label>
+          <input id="equipeLogo" type="text" placeholder="http://">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Année de création</label>
+          <input id="equipeCreation" type="text">
+        </div>
+        <div class="form-group col-md-3">
+          <button id="ajouteEquipe" class="btn btn-primary">Ajouter</button>
+          <div id="messageAjax"></div>
+        </div>
+      </div>
+    </div>
+
+    <form action="app.php" method="post" class="well" style="margin: 10px 0">
       <div class="row">
         <div class="form-group col-md-4">
           <label for="">Equipe recevant</label>

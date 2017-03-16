@@ -1,0 +1,9 @@
+github.com/cdufour/php-poo-dev11
+=> à télécharger, dézipper et placer dans le dossier htdocs
+
+créer la base de données "formation-php-poo"
+importer le fichier "formation-php-poo.sql"
+
+xampp
+atom (packages optionnels: emmet, autocomplete-paths)
+chrome

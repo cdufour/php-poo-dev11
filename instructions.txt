@@ -1,0 +1,20 @@
+*** Programme du jour J6 ***
+9h30-11h00: terminer seuls l'exercice de la veille:
+Implémenter l'enregistrement des buts (côté serveur)
+11h15-12h: correction
+12h-13h: héritage
+14h-17h: suite du cours + TP
+
+
+*** Programme du jour J7 ***
+9h30-11h00: continuer TP de la veille:
+
+Apporter les améliorations suivantes (au choix):
+- Le nom d'une équipe choisie ne doit pas apparaître dans l'autre menu déroulant
+- attacher un calendrier à l'input date et vérifier que la date
+est bien enregistrée en db
+- Afficher les buteurs au survol d'un score
+
+11h15-13h: correction
+
+14h-17h: suite correction + TP

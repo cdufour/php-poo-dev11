@@ -24,3 +24,11 @@
   cursor: pointer;
   position: relative;
 }
+
+.success {
+  color: #4F8A10
+}
+
+.error {
+  color: #D8000C
+}

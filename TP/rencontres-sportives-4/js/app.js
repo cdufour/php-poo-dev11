@@ -4,7 +4,14 @@ $(document).ready(function() {
     score1: 0,
     score2: 0,
     equipe1_select: null,
-    equipe2_select: null
+    equipe2_select: null,
+    url_serveur: 'ajax.php',
+    messageSuccess: {
+      equipeAjoutee: 'Equipe ajoutée avec succès'
+    },
+    messageErreur: {
+      equipeAjoutee: 'La tentative d\'enregistrement a échoué'
+    }
   }
 
   // equipe 1
@@ -29,7 +36,9 @@ $(document).ready(function() {
     enableTime: true
   });
 
-  // événements
+  var $formAjouteEquipe = $('div#formAjouteEquipe');
+
+  // *************** événements *************
   $ajouteButeur1.click(function() {
     var $selectedOption = $('#selectJoueur1 option:selected');
     var joueurName = $selectedOption.text();
@@ -88,7 +97,7 @@ $(document).ready(function() {
 
       $formButeurEquipe1.show();
       // choix d'une équipe => ajax
-      var url = 'ajax.php?id=' + equipe_id;
+      var url = app.url_serveur + '?id=' + equipe_id;
       var promesse = $.get(url);
       var joueursCb = function(res) {
         // transforme la chaîne de caractères JSON en tableau JS
@@ -120,7 +129,7 @@ $(document).ready(function() {
 
       $formButeurEquipe2.show();
       // choix d'une équipe => ajax
-      var url = 'ajax.php?id=' + equipe_id;
+      var url = app.url_serveur + '?id=' + equipe_id;
       var promesse = $.get(url);
       var joueursCb = function(res) {
         // transforme la chaîne de caractères JSON en tableau JS
@@ -156,6 +165,57 @@ $(document).ready(function() {
     .mouseleave(function() {
       $(this).parent().find('div.buteurs').hide(150);
   });
+
+  $('button#afficheFormEquipe').click(function() {
+    $('div#formAjouteEquipe').toggle();
+  });
+
+  $('button#ajouteEquipe').click(function() {
+    // récupérer les valeurs des champs de l'équipe
+    var equipe = {
+      nom: $formAjouteEquipe.find('input#equipeNom').val(),
+      logo: $formAjouteEquipe.find('input#equipeLogo').val(),
+      annee_de_creation: $formAjouteEquipe.find('input#equipeCreation').val()
+    };
+
+    var successCb = function(res) {
+      var reponse_serveur = JSON.parse(res);
+      console.log(reponse_serveur.id);
+      // afficher un message de succès
+      $formAjouteEquipe.find('div#messageAjax')
+      .removeClass('error')
+      .addClass('success')
+      .html(app.messageSuccess.equipeAjoutee)
+      .delay(8000)
+      .fadeOut(3000);
+
+      // mettre à jour les menus de sélection des équipes
+      var option = '<option value="'+ reponse_serveur.id +'">'+ equipe.nom +'</option>'
+      $selectEquipe1.append(option);
+      $selectEquipe2.append(option);
+    }
+
+    var errorCb = function(res) {
+      $formAjouteEquipe.find('div#messageAjax')
+      .removeClass('success')
+      .addClass('error')
+      .html(app.messageErreur.equipeAjoutee)
+      .delay(8000)
+      .fadeOut(3000);
+    }
+
+    $.ajax({
+      type: 'POST',
+      url: app.url_serveur,
+      data: {equipe: equipe},
+      success: successCb,
+      error: errorCb
+    });
+
+  });
+
+
+  //******************************************************
 
   // helper functions
   function buildSelectJoueurs(joueurs, id) {

@@ -8,3 +8,20 @@ echo $realMadrid->getEntraineur() // retourne 'Zidane'
 
 
 https://github.com/cdufour/php-poo-dev11
+
+******************************************************
+Jour 7
+
+Récupérer les fichiers (dont la db) du TP rencontres sportives 2 depuis ce repo
+https://github.com/cdufour/php-poo-dev11
+
+Apporter les améliorations suivantes (au choix):
+- Le nom d'une équipe choisie ne doit pas apparaître dans l'autre menu déroulant
+- attacher un calendrier à l'input date et vérifier que la date
+est bien enregistrée en db
+
+- Afficher les buteurs au survol d'un score
+
+*****************************************************
+Jour 8
+Créer une interface d'enregistrement d'équipe et de joueurs (liés à une équipe)
