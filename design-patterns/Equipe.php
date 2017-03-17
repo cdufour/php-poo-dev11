@@ -10,12 +10,8 @@ class Equipe
 
   public function __construct(array $donnees = [])
   {
-    //$this->setDb(new PDO('mysql:host=localhost;dbname=formation-php-poo;charset=utf8', 'root'));
-    // On injecte la dépendance avec PDO en passant par
-    // un molèle de conception factory offrant plus de souplesse
-    // dans le choix du SGBD à utiliser (et paramètrer)
-    $this->setDb(PDOFactory::getPgsqlConnexion());
-
+    $this->setDb(new PDO('mysql:host=localhost;dbname=formation-php-poo;charset=utf8', 'root'));
+ 
     // hydratation: on fournit des valeurs aux propriétés
     if (!empty($donnees)) { // on hydrate que si le tableau des données n'est pas vide
       if (isset($donnees['id'])) $this->setId($donnees['id']);

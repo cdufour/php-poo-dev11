@@ -1,11 +1,6 @@
 <?php
 // bloc php pour chargement données
-require 'classes/Rencontre.php';
-require 'classes/Equipe.php';
-require 'classes/Competition.php';
-require 'classes/But.php';
-require 'classes/Joueur.php';
-require 'classes/DBM.php';
+require 'loader.php';
 
 $rencontre = new Rencontre();
 $rencontres = $rencontre->liste();
